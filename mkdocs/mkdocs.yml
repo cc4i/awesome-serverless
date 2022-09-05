@@ -1,11 +1,11 @@
 site_name: Serverless on Google Cloud
 site_url: https://github.com/cc4i/multi-serverless/
 nav:
-  - Home: '../README.md'
+  - Home: 'index.md'
   - 'General':
     - 'Preparing Cloud Run for Production': general/prepare-run.md
   - About:
-    - 'License': '../LICENSE'
+    - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
 theme: 
   name: material
