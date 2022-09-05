@@ -1,4 +1,4 @@
-<img src="./mkdocs/docs/images/skipper.png" alt="multi-k8s" width="200"/>
+<img src="./images/skipper.png" alt="multi-k8s" width="200"/>
 
 
 
@@ -21,11 +21,6 @@ Will include advanced topics in the future:
 - Solutions on GKE
 - Workaround for something 
 
->[Live docs](https://cc4i.github.io/multi-k8s/)
-
 ## Contributing
 
 Encourage you to contribute to this repo if you have implemented a practice that has proven to solve something, just open an issue or a pull request to share with us, please.
-
-## Notes
-Starring the repo if you feel helpful, that's the big motivation and thanks.

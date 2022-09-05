@@ -1,0 +1,28 @@
+site_name: Kubernetes on Google Cloud
+site_url: https://github.com/cc4i/multi-k8s/
+nav:
+  - Home: index.md
+  - 'General':
+    - '1. Preparing GKE cluster for PRODUCTION': general/prepare-gke.md
+  - 'Scaling':
+    - 'Solve the issue of blocking scale-down': general/block-scaling.md
+  - 'Networking':
+    - '1. Deploy workload into single zone with high availability': networking/single-zone.md
+    - '2. Reduce inter-zone traffic with Anthhos Service Mesh': networking/asm-locality.md
+    - '3. Hybrid connectivity with services on AWS EKS': networking/glb-locality.md
+
+  - 'Security':
+    - '1. Acccessing AWS services from GKE through workload identity': security/workload-idetity.md
+
+  - 'Solutions':
+    - '1. K3s integrate Google Cloud Provider on GCE': solutions/play-k3s.md
+  
+  - 'Workaround':
+    - '1. Run a boortrap script when launching nodes in GKE': workaround/startup-script.md
+    - '2. Use customized Cluster Autoscaler instead of built-in one from GKE': workaround/custom-autoscaler.md
+    - '3. Three ways to surpass ephemeral storage limit of GKE Autopilot': workaround/autopilot-storage.md
+  - About:
+    - 'License': '../LICENSE'
+    - 'Release Notes': 'release-notes.md'
+theme: 
+  name: material
