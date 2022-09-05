@@ -1,4 +1,4 @@
-<img src="./mkdocs/docs/images/serverless.png" alt="multi-serverless"/>
+<img src="./mkdocs/docs/images/serverless.png" alt="multi-serverless" width="304"/>
 <br>
 
 
