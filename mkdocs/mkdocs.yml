@@ -4,6 +4,8 @@ nav:
   - Home: 'index.md'
   - 'General':
     - 'Preparing Cloud Run for Production': general/prepare-run.md
+  - 'Solutions':
+    - 'Migrate Microservices from GKE to Cloud Run': 'solutions/gke-to-run.md'
   - About:
     - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
