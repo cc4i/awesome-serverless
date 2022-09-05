@@ -1,12 +1,12 @@
-<img src="./mkdocs/docs/images/skipper.png" alt="multi-k8s" width="200"/>
+<img src="./mkdocs/docs/images/serverless.png" alt="multi-serverless"/>
+<br>
 
 
-
-# Kubernetes on Google Cloud
+# Serverless on Google Cloud
 
 ## What's this
 
-Welcome to Kubernetes on Google Cloud, the goal of this repo is to offer a collection of best practices and tutorrials for better use of GKE & Anthos products. Currently the content has been categorized for the following subjects:
+Welcome to Serverless wonderland on Google Cloud, the goal of this repo is to offer a collection of best practices and tutorrials to better leverage Serverless offering from Google Cloud. Currently the content has been categorized for the following subjects:
 
 - General
 - Networking 
@@ -15,13 +15,13 @@ Welcome to Kubernetes on Google Cloud, the goal of this repo is to offer a colle
 - CI/CD
 - Tooling
 
+
 Will include advanced topics in the future: 
 
-- Multi/Hybrid Clusters
-- Solutions on GKE
-- Workaround for something 
+- Solutions
+- Workaround for something
 
->[Live docs](https://cc4i.github.io/multi-k8s/)
+>[Live docs](https://cc4i.github.io/multi-serverless/)
 
 ## Contributing
 
