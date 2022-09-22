@@ -14,7 +14,7 @@ Accomplish those goals we designed a serverless based architecture with the leas
 
 ## High-level Architecture
 
-<img src="../images/run-ai.png" alt="run-ai"/>
+![run-ai](../images/run-ai.png)
 
 ## Prerequisite 
 
