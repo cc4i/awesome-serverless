@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// [START eventarc_generic_handler]
-
-// Sample generic is a Cloud Run service which logs and echos received requests.
+// Simple Cloud Run service which logs and trigger Cloud Run Job.
 package main
 
 import (
@@ -102,7 +100,7 @@ type TokenStruct struct {
 
 func InvokeRunJob() {
 
-	// 1. Retrive access token-> http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+	// 1.Get access token
 	atoken, _ := GetMetadata("/computeMetadata/v1/instance/service-accounts/default/token")
 	log.Println(atoken)
 	var data TokenStruct
@@ -110,16 +108,18 @@ func InvokeRunJob() {
 		log.Println(err)
 	}
 
-	// 2. Get project id-> http://metadata.google.internal/computeMetadata/v1/project/project-id
+	// 2. Get project id
 	projectId, _ := GetMetadata("/computeMetadata/v1/project/project-id")
 	log.Println(projectId)
-	// 3. Get job name-> os.Getenv("JOB_NAME")
+
+	// 3. Get Cloud Run Job from emvironment variable - "JOB_NAME"
 	jobName := os.Getenv("JOB_NAME")
 	log.Println(jobName)
 
 	// 4. Get region
 	region, _ := GetMetadata("/computeMetadata/v1/instance/region")
 	log.Println(region)
+
 	// 5. Make up url with variables and then trigger the job
 	log.Printf("Authorization: Bearer %s", data.AccessToken)
 	jobUrl := fmt.Sprintf("https://%s-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/%s/jobs/%s:run", strings.Split(region, "/")[3], projectId, jobName)
@@ -130,6 +130,7 @@ func InvokeRunJob() {
 	//	  -X POST \
 	//	  -d '' \
 	//	  https://REGION-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/PROJECT-ID/jobs/JOB-NAME:run
+	// 6. Invoke Cloud Run Job
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
@@ -150,8 +151,7 @@ func InvokeRunJob() {
 	log.Println(string(bt))
 }
 
-// [START eventarc_generic_server]
-
+// Start Run Server
 func main() {
 	http.HandleFunc("/", GenericHandler)
 	// Determine port for HTTP service.
@@ -167,4 +167,4 @@ func main() {
 	}
 }
 
-// [END eventarc_generic_server]
+//

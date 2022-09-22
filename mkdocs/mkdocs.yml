@@ -6,6 +6,8 @@ nav:
     - 'Preparing Cloud Run for Production': general/prepare-run.md
   - 'Solutions':
     - 'Migrate Microservices from GKE to Cloud Run': 'solutions/gke-to-run.md'
+  - 'Applications':
+    - 'Build a smart application': 'applications/run-ai.md'
   - About:
     - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
