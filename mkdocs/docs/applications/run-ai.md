@@ -112,8 +112,8 @@ gcloud eventarc triggers create bucket-events-trigger-run-kicker \
 
 # 8. Validation
 # Copy files into bucket and triggering the process
-gsutil cp -r incoming/*.pdf gs://$GOOGLE_CLOUD_PROJECT-invoices/incoming
-gsutil cp -r incoming/brass-curve-1311.pdf gs://$GOOGLE_CLOUD_PROJECT-invoices/incoming/brass-curve-1311.pdf
+gsutil cp -r incoming/*.pdf gs://$BUCKET/incoming
+gsutil cp -r incoming/brass-curve-1311.pdf gs://$BUCKET/incoming/01-brass-curve-1311.pdf
 
 # Or use uploader to upload a file 
 open `gcloud run services describe uploader --region $REGION --format json|jq -r ".status.url"`
