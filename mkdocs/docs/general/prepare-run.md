@@ -1,6 +1,6 @@
 #
 
-## Thinking points for Cloud Run
+## Checklist for GKE for Cloud Run
 
 
 
