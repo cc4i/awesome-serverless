@@ -1,0 +1,17 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: cloudrun-utility
+build:
+  artifacts:
+  - image: asia-southeast1-docker.pkg.dev/play-api-service/cloud-run-source-deploy/cloudrun-utility
+    ko: {}
+# manifests:
+#   rawYaml:
+#   - k8s-manifests/deployment.yaml
+#   - k8s-manifests/service.yaml
+deploy:
+  # kubectl: {}
+  cloudrun:
+    projectid: play-api-service
+    region: asia-southeast1

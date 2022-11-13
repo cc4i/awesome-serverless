@@ -1,0 +1,53 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    client.knative.dev/user-image: asia-southeast1-docker.pkg.dev/play-api-service/cloud-run-source-deploy/cloudrun-utility
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/launch-stage: BETA
+  labels:
+    cloud.googleapis.com/location: asia-southeast1
+  name: cloudrun-utility
+  namespace: '374299782509'
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100'
+        autoscaling.knative.dev/minScale: '10'
+        client.knative.dev/user-image: asia-southeast1-docker.pkg.dev/play-api-service/cloud-run-source-deploy/cloudrun-utility
+        run.googleapis.com/cpu-throttling: 'false'
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/sessionAffinity: 'true'
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 1
+      containers:
+      - image: asia-southeast1-docker.pkg.dev/play-api-service/cloud-run-source-deploy/cloudrun-utility
+        startupProbe:
+          httpGet:
+            path: /ping
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          failureThreshold: 1
+          periodSeconds: 5      
+        livenessProbe:
+          httpGet:
+            path: /ping
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          failureThreshold: 1
+          periodSeconds: 5      
+        ports:
+        - containerPort: 9000
+          name: http1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+      serviceAccountName: 374299782509-compute@developer.gserviceaccount.com
+      timeoutSeconds: 3600
+  traffic:
+  - latestRevision: true
+    percent: 100

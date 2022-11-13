@@ -72,3 +72,5 @@ app.*.map.json
 /mkdocs/site/
 asset/run-ai/request.json
 asset/run-ai/out.txt
+
+.kpt-pipeline/

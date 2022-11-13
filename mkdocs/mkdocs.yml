@@ -7,7 +7,9 @@ nav:
   - 'Solutions':
     - 'Migrate Microservices from GKE to Cloud Run': 'solutions/gke-to-run.md'
   - 'Applications':
-    - 'Build a smart application': 'applications/run-ai.md'
+    - 'Smart application with Cloud Run': 'applications/run-ai.md'
+  - 'Security':
+    - 'Handle Auth for Cloud Run by ESPv2': 'security/espv2-run.md'
   - About:
     - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
