@@ -11,5 +11,5 @@ Skaffold run
 ```
 
 ## References
-- [Code](../../../asset/run-dbproxy/)
+- [Code](https://github.com/cc4i/awesome-serverless/tree/main/asset/run-dbproxy)
 - [AlloyDB Auth Proxy](https://cloud.google.com/alloydb/docs/auth-proxy/connect)
