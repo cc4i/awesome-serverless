@@ -4,6 +4,8 @@ nav:
   - Home: 'index.md'
   - 'General':
     - 'Preparing Cloud Run for Production': general/prepare-run.md
+  - 'Networking':
+    - 'Run connects to Private DB through sidecar': networking/run-dbproxy.md
   - 'Solutions':
     - 'Migrate Microservices from GKE to Cloud Run': 'solutions/gke-to-run.md'
   - 'Applications':

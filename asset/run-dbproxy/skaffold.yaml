@@ -1,0 +1,27 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: run-dbproxy
+build:
+  artifacts:
+    - image: asia-southeast1-docker.pkg.dev/play-dev-ops/k8s-asst/run-dbproxy
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:google-22
+        dependencies:
+          paths: 
+            - "*.py"
+            - "resources/*.yaml"
+          ignore:
+            - ".gitignore"
+            - "*.md"
+
+
+manifests:
+  rawYaml:
+    - resources/*
+
+deploy:
+  cloudrun:
+    projectid: play-dev-ops
+    region: asia-southeast1
+

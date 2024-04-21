@@ -1,0 +1,45 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: run-dbproxy
+  labels:
+    cloud.googleapis.com/location: "asia-southeast1"
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/network-interfaces: '[{"network":"default","subnetwork":"default"}]'
+        run.googleapis.com/vpc-access-egress: private-ranges-only
+        run.googleapis.com/startup-cpu-boost: 'true'
+        run.googleapis.com/cpu-throttling: 'false'
+        autoscaling.knative.dev/maxScale: '100'
+        autoscaling.knative.dev/minScale: '1'
+    spec:
+      containers:
+        - image: "asia-southeast1-docker.pkg.dev/play-dev-ops/k8s-asst/run-dbproxy"
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INSTANCE_HOST
+              value: "127.0.0.1"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASS
+              value: "vY8B?,~u$zNU8Ozm"
+            - name: DB_NAME
+              value: "postgres"
+            - name: DB_PORT
+              value: "5000"
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+        - image: "gcr.io/alloydb-connectors/alloydb-auth-proxy:latest"
+          args: 
+            - projects/play-dev-ops/locations/asia-southeast1/clusters/f1-alloydb/instances/f1-alloydb-pri
+            - --port
+            - "5000"
+            - --address
+            - "0.0.0.0"
