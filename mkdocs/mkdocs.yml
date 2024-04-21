@@ -1,5 +1,5 @@
 site_name: Serverless on Google Cloud
-site_url: https://github.com/cc4i/multi-serverless/
+site_url: https://github.com/cc4i/awesome-serverless/
 nav:
   - Home: 'index.md'
   - 'General':
